@@ -1,0 +1,121 @@
+/*Trabalho da TA2 - Técnicas de Programação
+Grupo - Batateiros Programadores - Allan Lima, Livia Dantas, Luiz Rodrigues, Ricardo Fernandes*/
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h> //Faz funcionar o system(cls)
+#define Max 10 
+//menu
+void MenuPrincipal();
+void Entrada();
+void Saida();
+void Ordenacao();
+//ficha
+typedef struct _FichaCurso{
+        char nome [30], cpf[14], email [30], tel[20],end[40], rg[13], emissor_rg[10], dataNasc[20]; 
+        int idade, cod;
+      
+        
+        }
+        FichaEscola;
+  		
+		//inciando a ficha do aluno    
+        FichaEscola Aluno[Max]; 
+        int  opcao;
+        char turma[5], curso[20], anoLetivo[5];
+        
+        main(){
+               int fim=0; //Fim é um valor lógico. Ele será usado para controlar o Do While
+               do
+               {
+               		//criando as opções do menu principal
+                   MenuPrincipal();
+                   switch (opcao)
+                   {
+                      case 1: Entrada();
+                            break;
+                      case 2: Saida();
+                            break;
+                      case 3: Ordenacao();
+                             break;
+                      case 5: fim = 1;
+                             break;
+                      default: printf("Opcao Invalida\n");
+                               getch();
+                   }
+                 }while (!(fim));
+                 printf("Fim Programa");
+                 getch();
+                 } //encerra o main
+                 //começa a primeira função
+                 void MenuPrincipal(){
+                      system ("cls"); //limpa tela
+                      printf (" *_*_* MENU PRINCIPAL *_*_*\n");
+                      printf ("\n 1 - Entrada\n");
+                      printf ("\n 2 - Saida\n");
+                      printf ("\n 3 - Ordenacao\n");
+                      printf ("\n 5 - Fim\n");     
+                      printf ("\n Escolha a sua opcao: \n");
+                      scanf("%d",&opcao);
+                      } //encerra a primeira função
+                   //começa a segunda função
+                 void Entrada(){
+                      int i=0;
+                      int qtd=0;
+                      system("cls");
+                      printf("Digite a quantidade de alunos\n");
+                      scanf("%d", &qtd);
+                      for(i=0;i<qtd;i++){
+                      printf("Digite o código do aluno \n");
+                      scanf("%d", &Aluno[i].cod);
+                      printf ("Digite o nome do aluno\n");
+                      scanf(" %[^\n]s", &Aluno[i].nome);
+                      printf("Digite o CPF do aluno no formato 999.999.999-99\n");
+                      scanf("%s", &Aluno[i].cpf);
+                      printf("Digite o RG do aluno no formato 99.999.999-9\n ");
+                      scanf("%s", &Aluno[i].rg);
+                      printf("Digite o orgao emissor do RG\n");
+                      scanf("%s", &Aluno[i].emissor_rg);
+                      printf("Digite o endereço do aluno (sem espaçamento): \n");
+                      scanf(" %[^\n]s", &Aluno[i].end);/*NÃO ALTEREM ESSA LINHA DE JEITO NENHUM. É PRA O SCANF CONSEGUIR ARMAZENAR OS ESPAÇOES DIGITADOS E LIMPAR O BUFFER AO MESMO TEMPO*/
+                      printf("Digite a data de nascimento do aluno: \n");
+                      scanf("%s", &Aluno[i].dataNasc);
+                      printf("Digite o telefone do aluno: \n");
+                      scanf("%s", &Aluno[i].tel);
+                      printf("Digite a idade do aluno: \n");
+                      scanf("%d", &Aluno[i].idade);
+                      
+                      }
+                      printf("\nTecle qualquer tecla para retornar ao menu principal\n");
+                      getchar();
+                 
+                      }  //encerra a segunda função
+                   //começa a terceira função
+                 void Saida (){
+                      system("cls");
+                      int n, i;
+                      printf("Digite a quantidade de alunos que voce quer exibir ate o valor maximo permitido: ");
+                      scanf("%d", &n);
+                      for(i=0;i<n;i++){
+                      printf("Codigo do aluno: %d \n", Aluno[i].cod);
+                      printf("Nome do Aluno: %s \n", Aluno[i].nome);
+                      printf("CPF do aluno: %s \n", Aluno[i].cpf);
+                      printf("Endereço do aluno: %s\n", Aluno[i].end);
+                      printf("RG do Aluno e Orgao Emissor do RG: %s %s \n", Aluno[i].rg, Aluno[i].emissor_rg);
+                      printf("Data de Nascimento do Aluno: %s \n", Aluno[i].dataNasc);
+                      printf("Idade do aluno: %d \n", Aluno[i].idade);
+                      printf("Telefone do aluno: %s \n", Aluno[i].tel);
+                      
+                      printf("Tecle enter para exibir o próximo aluno \n");
+                      
+                      getch();
+                      }
+					  } //encerra a terceira função
+                   //começa a terceira opção
+                 void Ordenacao(){
+                      system("cls");
+                      printf("Ordenacao em construcao");
+                      getch();
+                      } //encerra a terceira opção
+					  
+					//fim código    
