@@ -1,5 +1,5 @@
 /*Trabalho da TA2 - Técnicas de Programação
-Grupo - Batateiros Programadores - Allan Lima, Livia Dantas, Luiz Rodrigues, Ricardo Fernandes*/
+Grupo - Batateiros Programadores - Livia Dantas, Luiz Rodrigues, Ricardo Fernandes*/
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -137,5 +137,6 @@ typedef struct _FichaCurso{
 					  }while(!(fim_ord));
                       getch();
                       } //encerra a terceira opção
-					  /*Livia - parei aqui, Allan. Agora tem que fazer o menu da ordenação e a ordenação pelo método bubble*/
+					  /*Faremos a ordenação bubble*/
 					//fim código    
+
