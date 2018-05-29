@@ -1,5 +1,5 @@
 /*Trabalho da TA2 - Técnicas de Programação
-Grupo - Batateiros Programadores - Allan Lima, Livia Dantas, Luiz Rodrigues, Ricardo Fernandes*/
+Grupo - Batateiros Programadores - Livia Dantas, Luiz Rodrigues, Ricardo Fernandes*/
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
