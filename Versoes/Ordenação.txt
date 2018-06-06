@@ -131,12 +131,25 @@ typedef struct _FichaCurso{
                       		case 3: fim_ord=1;
                       				break;
                       		default: printf("Opcao invalida!\n");
-                      				getch();
+                      			getch;
 						  }
                       	
 					  }while(!(fim_ord));
+				}
+					void MenuOrdenacao(){
+						system("cls");
+						printf(" MENU ORDENACAO \n");
+						printf("\n1 - Crescente\n");
+						printf("\n2 - Descrescente\n");
+						printf("\n3 - Sair\n");
+						printf("\n Escolha uma das opcoes: \n");
+						scanf("%d", &op_ord);
+					}
+					void Crescente(){
+						int i, j;
+						Ficha
+					}
                       getch();
                       } //encerra a terceira opção
 					  /*Faremos a ordenação bubble*/
 					//fim código    
-
