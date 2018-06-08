@@ -1,0 +1,45 @@
+import java.util.*; //vai usar mais de um util
+import java.text.*; //para o negócio da data funcionar
+public class Caso2 {
+
+	public static void main(String[] args) {
+		String x, y, z;
+		Date dataForm1 = new Date(); //criando as variáveis das datas
+		Date dataForm2 = new Date();
+		Date dataForm3 = new Date();
+		
+		x = "10/12/2018"; //data que será exibida se estiver de acordo com o formato
+		y = "2018/12/10";
+		z = "2018/12/10 22:15:00";
+		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy"); //declarando o primeiro formato da data
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		
+		try {
+			dataForm1 = sdf1.parse(x);//vai tentar fazer isso, se der erro, vai imprimir na tela
+			} catch (ParseException e) {
+			e.printStackTrace();
+			}
+		try {
+			dataForm2 = sdf2.parse(y); //abrindo exceções para os formatos
+			} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+		try {
+			dataForm3 = sdf3.parse(z);
+			} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+			
+			System.out.println(sdf1.format(dataForm1)); //saída das datas
+			System.out.println(sdf2.format(dataForm2));
+			System.out.println(sdf3.format(dataForm3));
+		
+		
+		
+	}
+
+}
