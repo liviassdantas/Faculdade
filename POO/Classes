@@ -1,0 +1,56 @@
+Pessoa:
+______________________________________________________
+
+package a;
+
+import java.util.Date;
+public class Pessoa {
+	protected String nome;
+	protected String CPF;
+	protected String Sexo;
+	
+	protected Pessoa(String nome, String CPF, String sexo) {
+		super();
+		this.nome = nome;
+		this.CPF= CPF;
+		this.Sexo= sexo;
+	}
+	
+	
+}
+____________________________________________________________________________
+Professor:
+package a;
+
+public class Professor extends Pessoa {
+	public double sal;
+	
+	public Professor(double sal, String nome, String CPF, String Sexo) {
+		super(nome, CPF, Sexo);
+		this.sal = sal;
+	}
+
+	
+
+
+		
+	
+		
+	}
+
+____________________________________________________________________________
+package a;
+import java.util.Date;
+public class Principal {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Professor p1 = new Professor(1350.21, "Sidney", "123.456.789-00", "11/11/2011", new Date(), 0);
+		
+		System.out.println("Professor Cadastrado: \n\n Nome: "+p1.nome);
+		System.out.println("\n CPF: "+p1.CPF);
+		system.out.println("\n Sexo: "+p1.Sexo);
+		//fazer isso para os outros
+
+	}
+
+}
