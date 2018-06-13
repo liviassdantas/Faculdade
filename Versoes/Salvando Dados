@@ -1,5 +1,5 @@
 /*Trabalho da TA2 - Técnicas de Programação
-Grupo - Batateiros Programadores - Livia Dantas e Ricardo Fernandes*/
+Grupo - Batateiros Programadores - Livia Dantas, Luiz Rodrigues, Ricardo Fernandes*/
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -75,7 +75,7 @@ typedef struct _FichaEscola{
                       scanf("%s", &Aluno[i].rg);
                       printf("Digite o orgao emissor do RG\n");
                       scanf("%s", &Aluno[i].emissor_rg);
-                      printf("Digite o endereço do aluno (sem espaçamento): \n");
+                      printf("Digite o endereço do aluno: \n");
                       scanf(" %[^\n]s", &Aluno[i].end);/*NÃO ALTEREM ESSA LINHA DE JEITO NENHUM. É PRA O SCANF CONSEGUIR ARMAZENAR OS ESPAÇOES DIGITADOS E LIMPAR O BUFFER AO MESMO TEMPO*/
                       printf("Digite a data de nascimento do aluno: \n");
                       scanf("%s", &Aluno[i].dataNasc);
@@ -92,10 +92,10 @@ typedef struct _FichaEscola{
                    //começa a terceira função
                  void Saida (){
                       system("cls");
-                      int n, i;
+                      int i;
                       printf("Digite a quantidade de alunos que voce quer exibir ate o valor maximo permitido: ");
-                      scanf("%d", &n);
-                      for(i=0;i<n;i++){
+                      scanf("%d", &qtd);
+                      for(i=0;i<qtd;i++){
                       printf("Codigo do aluno: %d \n", Aluno[i].cod);
                       printf("Nome do Aluno: %s \n", Aluno[i].nome);
                       printf("CPF do aluno: %s \n", Aluno[i].cpf);
@@ -109,7 +109,7 @@ typedef struct _FichaEscola{
                       }
 						  //gravar arquivos
                       	//********************************************
-    					FILE * arq;
+    					/*FILE * arq;
     					arq = fopen("aluno.dat","wb");
     					fwrite(&qtd,sizeof(int),1,arq);
     					fwrite(&Aluno,sizeof(FichaEscola),qtd,arq);
@@ -118,7 +118,7 @@ typedef struct _FichaEscola{
     					getch();
     					//********************************************
 
-						//================================================
+					*/	//================================================
                       getch();
 					  } //funcionou a gravação
                    //começa a terceira opção
@@ -158,7 +158,7 @@ typedef struct _FichaEscola{
 					void Crescente(){
 						int i, j;
 						//*****************************
-					    FILE * arq;    
+					    /*FILE * arq;    
 					    arq = fopen("aluno.dat","rb");
 					    fread(&qtd,sizeof(int),1,arq);
 					    fread(&Aluno,sizeof(FichaEscola),qtd,arq);
@@ -170,8 +170,14 @@ typedef struct _FichaEscola{
      					{
       					printf("Codigo: %d\n ",Aluno[i].cod);
       					printf("Nome: %s\n",Aluno[i].nome);
+      					printf("CPF do aluno: %s\n", Aluno[i].cpf);
+      					printf("Endereco do aluno: %s\n", Aluno[i].end);
+      					printf("RG do Aluno e Orgao Emissor do RG: %s %s \n", Aluno[i].rg, Aluno[i].emissor_rg);
+                      	printf("Data de Nascimento do Aluno: %s \n", Aluno[i].dataNasc);
+                      	printf("Idade do aluno: %d \n", Aluno[i].idade);
+                      	printf("Telefone do aluno: %s \n", Aluno[i].tel);
     					}
-    					getch();
+    					getch();*/
 						FichaEscola alunoAux;
 						for(i=0; i<qtd-1;i++){
 							for(j=i+1;j<qtd;j++){
