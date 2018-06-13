@@ -21,7 +21,7 @@ typedef struct _FichaCurso{
   		
 		//inciando a ficha do aluno    
         FichaEscola Aluno[Max]; 
-        int  opcao;
+        int  opcao, op_ord, qtd =0;
         char turma[5], curso[20], anoLetivo[5];
         
         main(){
@@ -61,7 +61,6 @@ typedef struct _FichaCurso{
                    //começa a segunda função
                  void Entrada(){
                       int i=0;
-                      int qtd=0;
                       system("cls");
                       printf("Digite a quantidade de alunos\n");
                       scanf("%d", &qtd);
@@ -84,6 +83,7 @@ typedef struct _FichaCurso{
                       scanf("%s", &Aluno[i].tel);
                       printf("Digite a idade do aluno: \n");
                       scanf("%d", &Aluno[i].idade);
+                      
                       
                       }
                       printf("\nTecle qualquer tecla para retornar ao menu principal\n");
@@ -120,7 +120,7 @@ typedef struct _FichaCurso{
                       int fim_ord=0;
                       do{
                       	MenuOrdenacao();
-                      	switch(op_ord);
+                      	switch(op_ord)
                       	{
                       		case 1: Crescente();
                       				fim_ord = 1;
@@ -139,17 +139,35 @@ typedef struct _FichaCurso{
 					void MenuOrdenacao(){
 						system("cls");
 						printf(" MENU ORDENACAO \n");
-						printf("\n1 - Crescente\n");
-						printf("\n2 - Descrescente\n");
-						printf("\n3 - Sair\n");
+						printf("\n 1 - Crescente\n");
+						printf("\n 2 - Descrescente\n");
+						printf("\n 3 - Sair\n");
 						printf("\n Escolha uma das opcoes: \n");
 						scanf("%d", &op_ord);
 					}
 					void Crescente(){
 						int i, j;
-						Ficha
-					}
-                      getch();
-                      } //encerra a terceira opção
-					  /*Faremos a ordenação bubble*/
-					//fim código    
+						FichaEscola alunoAux;
+						for(i=0; i<qtd-1;i++){
+							for(j=i+1;j<qtd;j++){
+							if(Aluno[i].cod>Aluno[j].cod){
+								alunoAux = Aluno[i];
+								Aluno[i] = Aluno[j];
+								Aluno[j] = alunoAux;
+								printf("\n Dados Ordenados");
+							}else{
+								printf("Errado");
+							}
+							//Até aqui o senhor nos ajudou
+							getch();
+							}
+							}
+					
+                      		getch();
+                      			} //encerra a terceira opção
+					  	void Decrescente(){
+					  		printf("Vou terminar num momento futuro");
+					  		getch();
+						  }
+					  
+					//fim código  
