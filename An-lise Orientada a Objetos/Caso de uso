@@ -1,1 +1,13 @@
+Pedido online: 
 
+Crie o diagrama de caso de uso capaz de realizar todo o processo de pedido de um determinado lanche por meio de uma página.  
+
+-todo e qualquer pedido, só poderá ser realizado caso o cliente esteja cadastrado no sistema; 
+
+-O cadastro do cliente poderá acontecer de duas maneiras: a primeira poderá ser realizada pelo próprio cliente; a segunda o sistema, após uma verificação, poderá realizar o cadastro automaticamente; 
+
+-No ato do pedido, o cliente deverá informar o tipo de lanche escolhido e posteriormente, escolher a forma de pagamento; 
+
+-O sistema irá informar para o cliente o valor e o prazo de entrega do pedido; 
+
+-O entregador ou motoboy irá receber um cupom com o lanche a ser entregue, o endereço, a forma de pagamento e o valor a ser cobrado. 
