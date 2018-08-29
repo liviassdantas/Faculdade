@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+int main(){
+    int i, j, contpar=0, matriz[2][4];
+    
+    for(i=0;i<2;i++){
+        for(j=0;j<4;j++){
+            printf("\nNúmeros [%d][%d]: %d", i, j, matriz[i][j]=rand()%30);
+        }
+    }
+            for(i=0;i<2;i++){
+                for(j=0;j<4;j++){
+                    if(matriz[i][j] >= 15 || matriz[i][j]>=20){
+                        contpar++;
+                    }else{
+                        
+                    }
+                }
+                
+                }
+                printf("\n Quantidade de numeros entre 15 e 20: %d", contpar);
+                
+}
+
+
