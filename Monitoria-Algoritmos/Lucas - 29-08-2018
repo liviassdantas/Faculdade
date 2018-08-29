@@ -1,0 +1,20 @@
+/*Algoritmo media*/
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+main(){
+float ta1=0,trab1=0, ta2=0, trab2=0, media=0; //declaração de variáveis
+printf("Nota TA1: \n");//recebendo valores
+scanf("%f",&ta1);
+printf("Nota Trab1: \n");
+scanf("%f",&trab1);
+printf("Nota Ta2: \n");
+scanf("%f",&ta2);
+printf("Nota trab2: \n");
+scanf("%f",&trab2);
+
+media = ((ta1*7)+(trab1*3)+ (ta2*5)+(trab2*5))/20;
+
+printf("Media: %1.2f",media);
+getch();
+}
