@@ -1,0 +1,76 @@
+//Algoitmos resolvidos apenas para a demonstração de soluções!
+
+1) Faça um algoritmo que leia os valores, A, B, C e imprima na tela a soma de A + B menor que C
+    Algoritmo “Soma”
+    var
+        A,B,C: real
+        Soma: real
+    Inicio
+        escreval(“Digite um número”)
+        leia(a)
+        escreval(“Digite um segundo número”)
+        leia(b)
+        escreval(“Digite um terceiro número)
+        leia(c)
+            soma <- a+b
+                se(soma<=c) entao
+                escreval(“Soma é: “, soma)
+                senao
+                escreva(“Não é menor”)
+                 fimse
+    fimalgoritmo
+    
+2) Faça um algoritmo que leia o nome, o sexo e o estado civil de uma pessoa. Caso o sexo seja “F” e o estado civil seja “CASADA”, solicitar tempo de casada (anos):
+    Algoritmo ”estado civil”
+    Var
+        nome, sexo, estCivil: caractere
+        anos: inteiro
+    Inicio
+        escreva(“Digite o nome”)
+        leia(nome)
+        escreva(“Digite o sexo: “)
+        leia(sexo)
+        escreva(“Digite o estado civil: “)
+        leia(estCivil)
+
+            se(sexo = “F”) e (estCivil = “CASADA”) entao
+                escreva(“Qual é o tempo de casada?”)
+                leia (anos)
+            senao    
+                escreva(“Obrigada”)
+            fimse
+    fimalgoritmo
+
+3) Faça um algoritmo para receber um número qualquer e informar na tela se é par ou ímpar:
+    Algoritmo “Número”
+    Var
+        n1:real
+    Inicio
+        escreval(“Digite um número”)
+        leia(n1)
+            
+Se(n1 mod 2=0) entao
+    escreva(“O número é par”)
+Senao
+    escreva(“O número é ímpar”)
+Fimse
+    FimAlgoritmo
+
+4)Faça um algoritmo que leia dois valores inteiros A e B. Se os valores forem iguais, deverá somar  os dois. Caso o contrário, multiplique A por B. Ao final de qualquer um dos cálculos deve-se atribuir o resultado para uma variável C e mostrar seu conteúdo na tela.
+    Algoritmo “Soma”
+    Var
+        A, B, C: inteiro
+    Inicio
+        escreva(“Digite o primeiro número: ”)
+        leia(a)
+        escreva(“Digite o segundo número: “)
+        leia(b)
+            
+            se(a=b) entao
+                c<-a+b
+                escreva(“O número é:”, c)
+            senao se (a<>b)
+                c<-a*b
+                escreva(“O número é:”, c)
+            fimse
+    Fimalgoritmo
