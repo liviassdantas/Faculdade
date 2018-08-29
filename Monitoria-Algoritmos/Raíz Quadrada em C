@@ -1,0 +1,32 @@
+
+Raiz quadrada:
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<conio.h>
+
+main(){
+    //declarando as variáveis
+    int a, b, c;
+    float delta, x1, x2;
+    
+    //armazenando as variáveis
+    printf("Digite o valor de A: \n");
+    scanf("%d", &a);
+    
+    printf("Digite o valor de B: \n");
+    scanf("%d", &b);
+    
+    printf("Digite o valor de C: \n");
+    scanf("%d", &c);
+    
+    delta = (b*b)-4*a*c;
+    x1 = (-b + sqrt(delta))/(2*a);
+    x2 = (-b-sqrt(delta))/(2*a);
+    
+    printf("%f", x1);
+    printf("%f", x2);
+    
+    getch();
+    
+}
