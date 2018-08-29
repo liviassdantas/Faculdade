@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<locale.h> //para fazer as acentuações funcionarem
+/*Feito por Livia Dantas - Deus está vendo o seu CTRL + C!*/
 //criando os menus
 void MenuPrincipal();
 void LISTAGEM ();
