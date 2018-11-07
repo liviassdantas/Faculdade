@@ -1,201 +1,228 @@
 #include<stdio.h>
-#include<conio.h>
 #include<stdlib.h>
+#include<conio.h>
 #include<string.h>
-#include<locale.h> //para fazer as acentuações funcionarem
-/*Feito por Livia Dantas - Deus está vendo o seu CTRL + C!*/
-//criando os menus
-void MenuPrincipal();
-void INSERIR ();
-void PRIMEIRO ();
-void EXIBIR ();
-void EXCLUIR ();
-void ESVAZIAR ();
-
-//==================================
-//definindo a estrutura da lista
-//==================================
+ /*Programa Fila - Digitando o do Leone */
+ /*Declarando os menus principais*/
+ 
+ /*Criando os menus que vão aparecer na tela inicial*/
+ 
+ void MenuPrincipal();
+ void INSERIR();
+ void EXCLUIR();
+ void PRIMEIRO();
+ void EXIBIR();
+ void EXIBIR();
+ void ESVAZIAR();
+ 
+/*Definição da fila - declarando o tipo de elemento, inicio e fim*/
 #define MAX 10
-typedef int telem;
+typedef int telem; //Os elementos dessa fila serão do tipo inteiro (somente números)
 typedef struct {
-	telem v[MAX];
-	int inicio;
-	int final;
-} tfila;
+    telem v[MAX]; //vetor maximo de elementos
+    int inicio; //para declarar o inicio da fila
+    int fim;   //para declarar o final da fila
+   }tfila;
+//=====================
+//Declarando as funções da fila
+void criar(tfila *F); //cria a fila, caso ela não exista
+int vazia (tfila F); //verifica se a fila está vazia
+int primeiro (tfila F, telem *dado); //verifica o primeiro elemento
+int inserir (tfila *F, telem dado); //insere um elemento na fila (caso não esteja completa)
+int remover (tfila *F, telem *dado); //remove um elemento de uma fila
+void imprimir (tfila *F); //exibe os elementos da fila
 
-//===================================
-//criando as listas e as funções - Essa parte está no slide
-//===================================
-void criar (tfila *F){
-	F->inicio=0;
-	F->final=-1;
-	 //vai criar a lista se a posição n for igual a 0
-} 
-int vazia (tfila F){
-	return(F.inicio>F.final);  //vai considerar a lista como vazia
-}
-int primeiro(tfila F, telem*dado)
-{
-	if (vazia(F)) return 0;/*Erro:Fila vazia*/
-	*dado = F.v[F.inicio];
-	return(1);
-}
-
-int inserir (tfila *F, telem valor)
-{
-	if(F->final==MAX-1)return 0;
-	(F->final)++;
-	F->v[F->final]=valor;
-	return(1);
-}
-int remover (tfila*F,telem*valor)
-{
-	if(vazia(*F)) return 0; /*Erro:fila vazia*/
-	primeiro(*F,valor);
-	(F->inicio)++;
-	return(1);
-}
-void imprimir (tfila *F);
-//=====================================
-//GERANDO AS OPÇÕES DO MENUZINHO
+//Código do menu principal
 tfila NUMEROS;
 int opcao;
-main ()
+
+main()
 {
-	setlocale(LC_ALL, "Portuguese");
-	int fim=0;
-	criar (&NUMEROS);
-	do
-	{
-		MenuPrincipal();
-		switch(opcao)
-		{
-			case 1: INSERIR();
-					break;
-			case 2: EXCLUIR();
-					break;
-			case 3: PRIMEIRO();
-					break;
-			case 4: EXIBIR();
-					break;
-			case 5: ESVAZIAR();
-					break;
-			case 6: fim=1;
-					break;
-			default: printf("Opção inválida");
-					getch();
-			
-		}
-	}while(!(fim));
-	printf("Fim do programa");
-			getch();
+      int codigo=0;
+      criar (&NUMEROS);
+      do
+      {
+         MenuPrincipal();
+         switch (opcao)
+         {
+             case 1:INSERIR();
+                    break;
+             case 2:EXCLUIR();
+                    break;
+             case 3:PRIMEIRO();
+                    break;
+             case 4:EXIBIR();
+                    break;
+             case 5:ESVAZIAR();
+                    break;
+             case 6:codigo=1;
+                    break;
+             default: printf("Opcao invalida\n");
+                      getch();
+         }
+      }while (!(codigo));
+      printf("Fim do programa");
+      getch();
 }
-void MenuPrincipal(){
-	system("cls");
-	printf("     EDITOR DE FILA \n");
-	printf("\n1 - Adicionar\n");
-	printf("\n2 - Excluir \n");
-	printf("\n3 - Exibir primeiro elemento\n");
-	printf("\n4 - Exibir fila\n");
-	printf("\n5 - Esvaziar\n");
-	printf("\n6 - SAIR\n");
-	printf("\n DIGITE A SUA OPÇÃO...");
-	scanf("%d", &opcao);
+
+//Declarando as referências do menu principal
+void MenuPrincipal()
+{
+     system("cls");
+     printf("         EDITOR DE FILA\n");
+     printf("\n1 - ADICIONAR\n");
+     printf("\n2 - EXCLUIR\n");
+     printf("\n3 - EXIBIR PRIMEIRO ELEMENTO\n");
+     printf("\n4 - EXIBIR FILA\n");
+     printf("\n5 - ESVAZIAR\n");
+     printf("\n6 - SAIR\n\n");
+     printf("\nDIGITE SUA OPCAO:");
+     scanf("%d",&opcao);
 }
+
+//Declarando a função INSERIR
 void INSERIR()
 {
-	telem num;
-	system ("cls");
-	printf("                   E N T R A D A   D E   D A D O S\n ");
-	printf("Digite um número inteiro (zero para terminar):");
-	scanf("%d", &num);
-	while(!(num==0))
-	{
-		if(!(inserir (&NUMEROS, num)))
-		{
-			printf("NUMERO MAXIMO DE ELEMENTOS INSERIDOS");
-			getch();
-			return;
-		}
-	printf("Digite um numero inteiro (zero para terminar):");
-	scanf("%d", &num);	
-		}
-	}
-void PRIMEIRO()
-{
-	system("cls");
-	printf("			S A I D A     D E    D A D O S  -  L I S T A G E M\n");
-	printf("Posição      Numeros\n");
-	if(vazia(NUMEROS))
-	{
-		printf("NENHUM NUMERO INSERIDO");
-		getch();
-		return;
-	}
-	imprimir (tfila *F);
-	getch();
-}
-void EXIBIR()
-{
-	system("cls");
-	printf("			P R I M E I R O   E L E M E N T O \n");
-	printf("Posição      Elemento\n");
-	if(vazia(NUMEROS))
-	{
-		printf("NENHUM NUMERO INSERIDO");
-		getch();
-		return;
-	}
-	imprimir (&NUMEROS);
-	getch();
+     telem num; //declarando um elemento do tipo número
+     system ("cls"); //para limpar a tela
+     printf("           A D I C I O N A R   E L E M E N T O\n");
+     printf("Digite um numero inteiro: ");
+     scanf("%d", &num); //recebendo o número digitado
+     if(!(inserir(&NUMEROS,num))){//verifica se a fila já possui o número máximo de inseridos
+         printf("NUMERO MAXIMO DE ELEMENTOS INSERIDOS");
+         getch();
+         return;
+     }
+     printf("O número %d foi inserido na posição %d", num, NUMEROS.fim); //caso o número seja inserido
+     getch();
 }
 
-
+//declarando a função excluir
 void EXCLUIR()
 {
-	telem num;
-	int posicao;
-	system("cls");
-	printf("           E X C L U I R  D A D O\n");
-	printf("Digite O valor a ser excluído:");
-	scanf("%d", &num);
-	if(!(remover(&NUMEROS, &num)))
-		{
-			printf("VALOR INEXISTENTE");
-			getch();
-			return;
-		}
-		else
-		{
-			printf("O número %d foi excluído da lista.", num);
-			
-		}
-		getch();
+     telem num;
+     system("cls");
+     printf("           E X C L U I R   D A D O\n");
+     if(!(remover(&NUMEROS, &num)))
+        {
+           printf("Fila vazia");
+           getch();
+           return;
+        }
+        else
+        {
+          printf("O número %d foi excluído", num);
+        }
+        getch();
 }
 
+//declarando a função primeiro
+void PRIMEIRO()
+{ 
+     telem num;
+     system("cls");
+     printf("           I N I C I O   D A   F I L A\n");
+     if(!(primeiro(NUMEROS, &num))) //verifica o número na posição 1
+     {
+         printf("NENHUM NUMERO INSERIDO");
+         getch();
+         return;
+         }
+     printf("O numero %d esta no inicio da fila.",num); //imprime o primeiro número da fila
+     getch();
+}
+//declarando a função exibir
+void EXIBIR()
+{
+     system("cls");
+     printf("         S A I D A  D E  D A D O S  -  L I S T A G E M  =>  F I L A :\n");
+     printf("Posicao         Numeros\n");
+     if(vazia(NUMEROS)) //verificando se a fila está vazia
+     {
+        printf("NENHUM NUMERO INSERIDO");
+        getch();
+        return;
+     }
+     imprimir(&NUMEROS); //imprime os núemros que foram inseridos na fila
+     getch();
+}
+
+//Declarando a função esvaziar
 void ESVAZIAR()
 {
-	telem num;
-		system("cls");
-	if(vazia(NUMEROS))
-	{
-		printf("NENHUM NUMERO INSERIDO");
-		getch();
-		return;
-	}
-	
-     while (!(&NUMEROS==0))
+     telem num;
+     system ("cls");
+     printf("        E S V A Z I A R   F I L A:\n\n");
+     if(vazia(NUMEROS))
      {
-     	remover(&NUMEROS, &num);
-	 }
-	 printf("LISTA ESVAZIADA");
-	 getch();
+        printf("        NENHUM NUMERO INSERIDO\n");
+        getch();
+        return;
+     }
+     while((remover(&NUMEROS,&num))) //remove um a um dos elementos da fila
+          remover(&NUMEROS,&num);
+
+    printf("           FILA ESVAZIADA");
+    getch();
+    return;
 }
 
-void imprimir (tfila *F){
-	int i;
-	for (i=F.inicio; i<=F.final;i++){
-		printf("%4d %16d\n", i, F ->v[i]);
-	}
-	return;
+//escopo das funções da fila
+//função imprimir
+void imprimir (tfila *F) {//referência da fila
+
+int i;
+for (i=F->inicio; i<= F->fim; i++) //vai funcionar enquanto não tiver chegado no final da fila
+   {
+     printf("%4d %16d\n",i,F -> v[i]); 
+   }
+return;
 }
+
+//função criar fila
+void criar(tfila *F){
+  F -> inicio= 0;
+  F -> fim = -1;
+} 
+
+//função fila vazia
+int vazia(tfila F){
+   return (F.inicio > F.fim); //vai verificar se o começo vai ser maior que o fim
+}        
+//função primeiro
+int primeiro(tfila F, telem *dado)
+{
+    if (vazia(F)) return (0);
+    *dado = F.v[F.inicio]; //vai pegar o primeiro elemento da fila
+    return (1);
+}
+//função inserir
+int inserir(tfila *F, telem dado)
+{
+    if (F->fim == MAX-1) return 0;
+    (F->fim)++;
+    F->v[F->fim] = dado;
+    return (1);
+}
+//função remover
+int remover(tfila *F, telem *dado)
+{
+    if (vazia(*F)) return (0);
+    primeiro(*F, dado);
+    (F->inicio)++;
+    return 1;
+}
+//função esvaziar
+int esvaziar(tfila *F)
+{
+  if(vazia(*F)) return 0;
+  F->inicio = F->fim + 1;
+
+  return 1;
+}
+          
+     
+      
+       
+
+   
