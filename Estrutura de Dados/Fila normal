@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<string.h>
- /*Programa Fila - Digitando o do Leone */
+ /*Programa Fila */
  /*Declarando os menus principais*/
  
  /*Criando os menus que vão aparecer na tela inicial*/
