@@ -1,0 +1,265 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<string.h>
+ /*Trabalho da TA2 - Programa fila de consultório */
+ /*Versão 1 - Contém erros*/
+ /*Declarando os menus principais*/
+ 
+ /*Criando os menus que vão aparecer na tela inicial*/
+ 
+ void MenuPrincipal();
+ void INSERIR();
+ void EXCLUIR();
+ void CHAMAR_PACIENTE();
+ void EXIBIR();
+ void EXIBIR();
+ void ESVAZIAR();
+ 
+/*Definição da fila - declarando o tipo de elemento, inicio e fim*/
+#define MAX 5
+typedef struct{
+	char nome[20];
+	int rg;
+	int idade;
+	char planSaude[20];
+	char hora[5];
+   } telem; //Os elementos dessa fila serão do tipo inteiro (somente números)
+typedef struct {
+    telem v[MAX]; //vetor maximo de elementos
+    int inicio; //para declarar o inicio da fila
+    int fim;   //para declarar o final da fila
+    int tam; //declara o tamanho da fila
+   }tfila;
+//=====================
+//Declarando as funções da fila
+void criar(tfila *F); //cria a fila, caso ela não exista
+int vazia (tfila F); //verifica se a fila está vazia
+int primeiro (tfila F, telem *dado); //verifica o primeiro elemento
+int inserir (tfila *F, telem dado); //insere um elemento na fila (caso não esteja completa)
+int remover (tfila *F, telem *dado); //remove um elemento de uma fila
+void imprimir (tfila *F); //exibe os elementos da fila
+
+//Código do menu principal
+tfila CLIENTES;
+int opcao;
+
+main()
+{
+      int codigo=0;
+      criar (&CLIENTES);
+      do
+      {
+         MenuPrincipal();
+         switch (opcao)
+         {
+             case 1:INSERIR();
+                    break;
+             case 2:EXCLUIR();
+                    break;
+             case 3:CHAMAR_PACIENTE();
+                    break;
+             case 4:EXIBIR();
+                    break;
+             case 5:ESVAZIAR();
+                    break;
+             case 6:codigo=1;
+                    break;
+             default: printf("Opcao invalida\n");
+                      getch();
+         }
+      }while (!(codigo));
+      printf("Fim do programa");
+      getch();
+}
+
+//Declarando as referências do menu principal
+void MenuPrincipal()
+{
+     system("cls");
+     printf("         EDITOR DE FILA\n");
+     printf("\n1 - ADICIONAR\n");
+     printf("\n2 - EXCLUIR\n");
+     printf("\n3 - EXIBIR PROXIMO\n");
+     printf("\n4 - EXIBIR FILA\n");
+     printf("\n5 - ESVAZIAR\n");
+     printf("\n6 - SAIR\n\n");
+     printf("\nDIGITE SUA OPCAO:");
+     scanf("%d",&opcao);
+}
+
+//Declarando a função INSERIR
+void INSERIR()
+{
+     telem cliente; //declarando um elemento do tipo cliente
+     system ("cls"); //para limpar a tela
+     printf("           A D I C I O N A R   P A C I E N T E\n");
+     printf("Digite o nome do paciente:\n ");
+     scanf("%s", cliente.nome);
+	 getchar(); //recebendo os dados do paciente
+     printf("Digite o numero de identidade do paciente: \n");
+     scanf("%d", &cliente.rg);
+     printf("Digite a idade do paciente: \n");
+     scanf("%d", &cliente.idade);
+     printf("Digite o tipo de plano de saude do paciente: \n");
+     scanf("%s", cliente.planSaude);
+     getchar();
+     printf("Digite o horario previsto para atendimento do paciente: \n");
+     scanf("%s", cliente.hora);
+     getchar();
+     if(!(inserir(&CLIENTES,cliente))){//verifica se a fila já possui o número máximo de inseridos
+         printf("NUMERO MAXIMO DE PACIENTES INSERIDOS");
+         getch();
+         return;
+     }
+     printf("O paciente %s foi inserido e sera atendido as %s. Senha do paciente  %d", cliente.nome, cliente.hora, CLIENTES.fim); //caso o número seja inserido
+     getch();
+}
+
+//declarando a função excluir
+void EXCLUIR()
+{
+     telem cliente;
+     system("cls");
+     printf("           E X C L U I R   D A D O\n");
+     if(!(remover(&CLIENTES, &cliente)))
+        {
+           printf("Fila vazia");
+           getch();
+           return;
+        }
+        else
+        {
+          printf("O paciente %s foi excluido", cliente.nome);
+        }
+        getch();
+}
+
+//declarando a função primeiro
+void CHAMAR_PACIENTE()
+{ 
+     telem cliente;
+     system("cls");
+     printf("           I N I C I O   D A   F I L A\n");
+     if(!(primeiro(CLIENTES, &cliente))) //verifica o número na posição 1
+     {
+         printf("NENHUM PACIENTE INSERIDO");
+         getch();
+         return;
+         }
+     printf("O paciente %s sera o proximo a ser atendido.",cliente.nome); //imprime o primeiro número da fila
+     getch();
+}
+//declarando a função exibir
+void EXIBIR()
+{
+     system("cls");
+     printf("         S A I D A  D E  D A D O S  -  L I S T A G E M  =>  F I L A :\n");
+     printf("Senha:         Paciente:           Horario:\n");
+     if(vazia(CLIENTES)) //verificando se a fila está vazia
+     {
+        printf("NENHUM PACIENTE INSERIDO");
+        getch();
+        return;
+     }
+     imprimir(&CLIENTES); //imprime os núemros que foram inseridos na fila
+     getch();
+}
+
+//Declarando a função esvaziar
+void ESVAZIAR()
+{
+     telem cliente;
+     system ("cls");
+     printf("        E S V A Z I A R   F I L A:\n\n");
+     if(vazia(CLIENTES))
+     {
+        printf("        NENHUM PACIENTE INSERIDO\n");
+        getch();
+        return;
+     }
+     while((remover(&CLIENTES,&cliente))) //remove um a um dos elementos da fila
+          remover(&CLIENTES,&cliente);
+
+    printf("           FILA ESVAZIADA");
+    getch();
+    return;
+}
+
+//escopo das funções da fila
+//função imprimir
+void imprimir (tfila *F)
+{
+    int i;
+    if ((F->inicio)<=(F->fim))
+        {	
+		 for (i>=(F->inicio);i<=(F->fim);i++)
+           {
+		    printf("%4d       %s                       %s\n", i, F -> v[i].nome, F->v[i].hora);
+		   }
+        }
+     else
+        {
+    	 i=(F->inicio);// AQUI ELE VAI DO INICIO ATÉ O MÁXIMO 
+    	 while(i<=MAX)
+           {
+    	     printf("%4d      %s                        %s\n", i,F ->v[i].nome, F->v[i].hora);
+    	     i++;
+     	   }
+		 i=0;
+		 while(i<=(F->fim)) //AQUI VAI DO FINAL ATÉ O INICIO DA FILA 
+		   {
+             printf("%4d      %s                        %s\n",i,F->v[i].nome, F->v[i].hora);
+             i++;
+  		   }
+        }
+    return;
+}
+
+//função criar fila
+void criar(tfila *F){
+  F -> inicio= 0;
+  F -> fim = -1;
+  F ->tam = 0;
+} 
+
+//função fila vazia
+int vazia(tfila F){
+   return (F.tam==0); //vai verificar se o começo vai ser maior que o fim
+}        
+//função primeiro
+int primeiro(tfila F, telem *dado)
+{
+    if (vazia(F)) return (0);
+    *dado = F.v[F.inicio]; //vai pegar o primeiro elemento da fila
+    return (1);
+}
+//função inserir
+int inserir(tfila *F, telem dado)
+{
+  	if(F->tam==MAX) return 0; 
+    
+        (F->tam)++;
+        F->fim=(F->fim+1)% MAX;
+        F->v[F->fim]=dado;
+        
+        return(1);
+}
+
+//função remover
+int remover(tfila *F, telem *dado)
+{
+    if (vazia(*F)) return (0);
+    primeiro(*F, dado);
+    (F->tam)--;
+    F->inicio = (F->inicio+1) %MAX;
+    return 1;
+}
+//função esvaziar
+int esvaziar(tfila *F)
+{
+  if(vazia(*F)) return 0;
+  F->inicio = F->fim + 1;
+
+  return 1;
+}
