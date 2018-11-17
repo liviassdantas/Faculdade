@@ -94,7 +94,7 @@ void INSERIR()
          getch();
          return;
      }
-     printf("O número %d foi inserido na posição %d", num, NUMEROS.fim); //caso o número seja inserido
+     printf("O numero %d foi inserido na posicao %d", num, NUMEROS.fim); //caso o número seja inserido
      getch();
 }
 
@@ -112,7 +112,7 @@ void EXCLUIR()
         }
         else
         {
-          printf("O número %d foi excluído", num);
+          printf("O numero %d foi excluido", num);
         }
         getch();
 }
@@ -170,22 +170,32 @@ void ESVAZIAR()
 
 //escopo das funções da fila
 //função imprimir
-void imprimir (tfila *F) {//referência da fila
-
-int i;
-if(F->inicio < F->fim){
-  for (i=F->inicio; i<= F->fim; i++) //vai funcionar enquanto não tiver chegado no final da fila
-   {
-     printf("%4d %16d\n",i,F -> v[i]); 
-   }
-   }else{
-      for(i=F->inicio; i=MAX;i++){
-        for(i=0;i=F->fim;i++){
-       printf("%4d %16d\n",i,F -> v[i]);
-     }
-     }
-
-return;
+void imprimir (tfila *F)
+{
+    int i;
+    if ((F->inicio)<=(F->fim))
+        {	
+		 for (i=(F->inicio);i<=(F->fim);i++)
+           {
+		    printf("%4d %12d\n", i, F -> v[i]);
+		   }
+        }
+     else
+        {
+    	 i=(F->inicio);// AQUI ELE VAI DO INICIO ATÉ O MÁXIMO 
+    	 while(i<MAX)
+           {
+    	     printf("%4d %12d\n", i,F ->v[i]);
+    	     i++;
+     	   }
+		 i=0;
+		 while(i<=(F->fim)) //AQUI VAI DO FINAL ATÉ O INICIO DA FILA 
+		   {
+             printf("%4d %12d\n",i,F->v[i]);
+             i++;
+  		   }
+        }
+    return;
 }
 
 //função criar fila
@@ -209,12 +219,15 @@ int primeiro(tfila F, telem *dado)
 //função inserir
 int inserir(tfila *F, telem dado)
 {
-    if (F->tam==MAX) return 0;
-    (F->tam)++;
-    F->fim = (F->fim +1) %MAX;
-    F->v[F->fim] = dado;
-    return (1);
+  	if(F->tam==MAX) return 0; 
+    
+        (F->tam)++;
+        F->fim=(F->fim+1)% MAX;
+        F->v[F->fim]=dado;
+        
+        return(1);
 }
+
 //função remover
 int remover(tfila *F, telem *dado)
 {
@@ -232,9 +245,3 @@ int esvaziar(tfila *F)
 
   return 1;
 }
-          
-     
-      
-       
-
-   
