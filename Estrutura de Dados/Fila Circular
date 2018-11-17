@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<string.h>
- /*Programa Fila CIRCULAR - Digitando o do Leone */
+ /*Programa Fila CIRCULAR - EXERCÍCIO SLIDE 4 */
  /*Declarando os menus principais*/
  
  /*Criando os menus que vão aparecer na tela inicial*/
@@ -16,7 +16,7 @@
  void ESVAZIAR();
  
 /*Definição da fila - declarando o tipo de elemento, inicio e fim*/
-#define MAX 4
+#define MAX 20
 typedef int telem; //Os elementos dessa fila serão do tipo inteiro (somente números)
 typedef struct {
     telem v[MAX]; //vetor maximo de elementos
