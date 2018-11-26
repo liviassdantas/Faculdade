@@ -1,0 +1,34 @@
+#include <conio.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+main() {
+int A=0,B=0,C=0,aux;
+printf ("Digite um valor inteiro\n");
+scanf ("%d",&A);
+printf ("Digite um valor inteiro\n"); 
+scanf ("%d",&B);
+printf ("Digite um valor inteiro\n");
+scanf ("%d",&C);       
+
+printf ("Os numeros sao: A= %d, B=%d, C=%d\n",A,B,C);
+
+if  (A>B){
+    aux=A;
+    A=B;
+    B=aux;
+}
+if (A>C){
+     aux=C;
+     C=B;
+     B=A;
+     A=aux;  
+     } else if (B>C){
+          aux=B;
+          B=C;
+          C=aux;   
+        
+    }
+printf ("Os numeros sao: A= %d, B=%d, C=%d\n",A,B,C);
+getch();    
+}
