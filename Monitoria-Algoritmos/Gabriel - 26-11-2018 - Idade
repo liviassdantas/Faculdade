@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+main(){
+int idade, qtd15=0, qtd1630=0, qtd3145=0, qtd4660=0, qtd60=0, i=0;//declarando as variáveis (um contador para cada condição)
+
+for(i=0; i<=5; i++){//o loop vai armazenar as idades e testar as condições
+	printf("Digite uma idade:\n");
+	scanf("%d", &idade);
+	if(idade<=15){//vai testar a idade
+			qtd15++;//vai armazenar quando tive uma pessoa nessa condição
+			
+		} else if(idade==16 || idade<=30){ //idade igual a 16 ou idade menor ou igual a trinta
+			qtd1630++; //vai somar a quantidade de pessoas com essa idade
+			
+		} else if(idade == 31||idade<=45){//idade igual a trinta e um ou menor que quarenta e cinco anos
+			qtd3145++; //vai somar a quantidade de pessoas com essa idade
+			
+		}  else if(idade == 46||idade<=60){//idade igual a 46 anos ou idade igual a 60
+			qtd4660++;
+			
+		} else if (idade>60){//idade maior que 60 anos
+			qtd60++;
+	}
+}
+
+//imprimindo os resultados 
+printf("Existem %d pessoas com 15 anos ou menos\n", qtd15);
+printf("Existem %d pessoas com 16 anos a 30 anos\n", qtd1630);
+printf("Existem %d pessoas com 31 anos a 45 anos\n", qtd3145);
+printf("Existem %d pessoas com 46 anos a 60 anos\n", qtd4660);
+printf("Existem %d pessoas maiores de 60 anos\n", qtd60);
+		
+getch();		
+
+}
