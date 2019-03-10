@@ -1,6 +1,6 @@
-package Cadastro;
+package Cadastro; //pacote cadastro
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa { //a classe aluno está recebendo os mesmos atributos da classe pessoa
 	private float nota1;
     private float nota2;
     private float media;
@@ -38,7 +38,7 @@ public class Aluno extends Pessoa {
         this.matricula = matricula;
     }
     
-    public void calcularMedia(float n1, float n2){
+    public void calcularMedia(float n1, float n2){ //calculando a media do aluno para retornar a situação dele
         this.media = (nota1+nota2)/2;
         if(media<7){
             this.situacao = "reprovado";
