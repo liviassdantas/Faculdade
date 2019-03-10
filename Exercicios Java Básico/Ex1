@@ -1,0 +1,23 @@
+package estudos;
+
+import java.util.Scanner; 
+public class Exerc1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner (System.in);
+		Double n1, n2, soma;
+		
+		System.out.println("Digite o primeiro número: \n");
+		n1 = input.nextDouble();
+		
+		System.out.println("Digite o segundo número: \n");
+		n2 = input.nextDouble();
+		
+		soma = n1+n2;
+		
+		System.out.println("A soma do número "+n1+" Com o número "+n2+" é:\n"+soma);
+		
+	}
+
+}
