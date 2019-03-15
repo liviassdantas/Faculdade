@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<servlet>
+             <servlet-name>Alunos</servlet-name>
+             <servlet-class>
+                C:\Users\aluno\eclipse-workspace\aula2\src\aula2\Alunos2.java
+             </servlet-class>
+         </servlet>
+
+         <servlet-mapping>
+             <servlet-name>Notas dos Alunos</servlet-name>
+             <url-pattern>/Alunos2</url-pattern>
+         </servlet-mapping>
+</web-app>
