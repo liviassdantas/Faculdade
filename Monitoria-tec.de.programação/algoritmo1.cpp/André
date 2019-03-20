@@ -1,0 +1,25 @@
+#include<stdlib.h>//bibliotecas e diretrizes
+#include<stdio.h>
+#include<conio.h>
+int main(){//iniciando a função principal
+	//tipos primitivos
+	 //int = números inteiros
+	 //float =real - números quebrados
+	 //bool = booleano(lógico) - verdadeiro ou falso
+	 //char nome[50] = cadeia de caracter
+	 float tab=0, num=0, n=0;
+	 //função de impressão -  imprime alguma coisa na tela = printf
+	 //função de leitura  - ler algum valor do teclado - scanf
+	 // \n = quebrar a linha
+	 printf ("_____________Tabuada de 1 a 10_________");
+	 printf("\nDigite um numero:\n");
+	 scanf("%f",&num); //vai armazenar dentro de num tudo que for do tipo float
+	 	for(n=1;n<=10;n++){//estrutura de repetição - inicio do ciclo;fim do ciclo;incremento ou decremento
+	 		tab=num*n;
+	 		printf("\n %1.2f",tab);
+		 }
+		 getch();//pausa a tela
+	 	
+	 
+	 
+}
